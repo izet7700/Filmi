@@ -1,0 +1,15 @@
+C:\Users\izoni\OneDrive\Dokumenti\GitHub\Filmi\filmi\obj\Debug\filmi.csprojAssemblyReference.cache
+C:\Users\izoni\OneDrive\Dokumenti\GitHub\Filmi\filmi\obj\Debug\filmi.MainForm.resources
+C:\Users\izoni\OneDrive\Dokumenti\GitHub\Filmi\filmi\obj\Debug\filmi.Properties.Resources.resources
+C:\Users\izoni\OneDrive\Dokumenti\GitHub\Filmi\filmi\obj\Debug\filmi.csproj.GenerateResource.cache
+C:\Users\izoni\OneDrive\Dokumenti\GitHub\Filmi\filmi\obj\Debug\filmi.csproj.CoreCompileInputs.cache
+C:\Users\izoni\OneDrive\Dokumenti\GitHub\Filmi\filmi\bin\Debug\filmi.exe.config
+C:\Users\izoni\OneDrive\Dokumenti\GitHub\Filmi\filmi\bin\Debug\filmi.exe
+C:\Users\izoni\OneDrive\Dokumenti\GitHub\Filmi\filmi\bin\Debug\filmi.pdb
+C:\Users\izoni\OneDrive\Dokumenti\GitHub\Filmi\filmi\bin\Debug\Google.Protobuf.dll
+C:\Users\izoni\OneDrive\Dokumenti\GitHub\Filmi\filmi\bin\Debug\MySql.Data.dll
+C:\Users\izoni\OneDrive\Dokumenti\GitHub\Filmi\filmi\bin\Debug\Google.Protobuf.xml
+C:\Users\izoni\OneDrive\Dokumenti\GitHub\Filmi\filmi\bin\Debug\MySql.Data.xml
+C:\Users\izoni\OneDrive\Dokumenti\GitHub\Filmi\filmi\obj\Debug\filmi.csproj.CopyComplete
+C:\Users\izoni\OneDrive\Dokumenti\GitHub\Filmi\filmi\obj\Debug\filmi.exe
+C:\Users\izoni\OneDrive\Dokumenti\GitHub\Filmi\filmi\obj\Debug\filmi.pdb
