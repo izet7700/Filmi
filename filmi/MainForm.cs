@@ -15,13 +15,63 @@ namespace filmi
    public partial class MainForm : Form
     {
         string ime, priimek, email, password, telefon, kraj;
+        public string mailprijava, passprijava;
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+            if (pass2MaskedTextBox.Text!="" && email2TextBox.Text!="") {
+                string MyConString = "SERVER=den1.mysql2.gear.host;" +
+                    "DATABASE=filmi;" +
+                    "UID=filmi;" +
+                    "PASSWORD=izet.m;";
+                string reader = "SELECT COUNT(*) FROM filmi.uporabniki WHERE EXISTS (email='" + email2TextBox.Text + "' AND " +
+                    "password='" + pass2MaskedTextBox.Text + "');";
+                MySqlConnection connection = new MySqlConnection(MyConString);
+                connection.Open();
+                MySqlDataAdapter login = new MySqlDataAdapter(reader,connection);
+                DataTable dt = new DataTable();
+                if (dt.Rows[0][0].ToString() == "1")
+                {
+                    mailprijava = email2TextBox.Text;
+                    passprijava = pass2MaskedTextBox.Text;
+                    MessageBox.Show("username and password are matched");
+                }
+                else
+                {
+                    MessageBox.Show("username and password aren't matched");
+                }
+            }
+        }
+
+        int cbc =0;
+        private void krajComboBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (cbc == 0)
+            {
+                string MyConString = "SERVER=den1.mysql2.gear.host;" +
+                "DATABASE=filmi;" +
+                "UID=filmi;" +
+                "PASSWORD=izet.m;";
+                string reader = "SELECT ime FROM filmi.kraji;";
+                MySqlConnection connection = new MySqlConnection(MyConString);
+                connection.Open();
+                MySqlCommand showkraj = new MySqlCommand(reader,connection);
+
+                using (MySqlDataReader read = showkraj.ExecuteReader())
+                {
+                    while (read.Read())
+                    {
+                        krajComboBox.Items.Add(read["ime"].ToString());
+                        krajComboBox.DisplayMember = read["ime"].ToString();
+                    }
+                }
+
+
+            }
+            cbc = 1;
+        }
+
         public MainForm()
         {
-            string MyConString = "SERVER=den1.mysql2.gear.host;" +
-            "DATABASE=filmi;" +
-            "UID=filmi;" +
-            "PASSWORD=izet.m;";
-            MySqlConnection connection = new MySqlConnection(MyConString);
             InitializeComponent();
         }
 
@@ -52,10 +102,15 @@ namespace filmi
                 "PASSWORD=izet.m;";
                 MySqlConnection connection = new MySqlConnection(MyConString);
                 connection.Open();
-                string register="INSERT INTO filmi.uporabniki(ime,priimek,kraj_id,email,password,telefon," +
-                    "datum_roj,vrsta_uporabnika) VALUES ('"+ ime +"','"+ priimek +"', '(SELECT id FROM" +
-                    "filmi.kraji WHERE ime='" + kraj+ "')','" + email + "','')";
-
+                string register = "INSERT INTO filmi.uporabniki(ime,priimek,kraj_id,email,password,telefon," +
+                    "datum_roj,vrsta_uporabnika) VALUES ('" + ime + "','" + priimek + "', '(SELECT id FROM" +
+                    "filmi.kraji WHERE ime='" + kraj + "')','" + email + "','" + password + "','" + telefon + "'," +
+                    "'" + datumroj + "',2);";
+                MySqlCommand regcomm = new MySqlCommand();
+                regcomm.CommandText = register;
+                regcomm.Connection = connection;
+                regcomm.ExecuteNonQuery();
+                connection.Close();
             }
         }
     }

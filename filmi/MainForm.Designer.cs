@@ -130,6 +130,7 @@
             // 
             this.passMaskedTextBox.Location = new System.Drawing.Point(139, 114);
             this.passMaskedTextBox.Name = "passMaskedTextBox";
+            this.passMaskedTextBox.PasswordChar = '*';
             this.passMaskedTextBox.Size = new System.Drawing.Size(180, 20);
             this.passMaskedTextBox.TabIndex = 9;
             // 
@@ -183,6 +184,7 @@
             this.loginButton.TabIndex = 17;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
             // label8
             // 
@@ -206,6 +208,7 @@
             // 
             this.pass2MaskedTextBox.Location = new System.Drawing.Point(139, 301);
             this.pass2MaskedTextBox.Name = "pass2MaskedTextBox";
+            this.pass2MaskedTextBox.PasswordChar = '*';
             this.pass2MaskedTextBox.Size = new System.Drawing.Size(180, 20);
             this.pass2MaskedTextBox.TabIndex = 20;
             // 
@@ -216,6 +219,7 @@
             this.krajComboBox.Name = "krajComboBox";
             this.krajComboBox.Size = new System.Drawing.Size(180, 21);
             this.krajComboBox.TabIndex = 21;
+            this.krajComboBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.krajComboBox_MouseClick);
             // 
             // label10
             // 
