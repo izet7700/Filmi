@@ -48,9 +48,11 @@ namespace filmi
             if (cbc == 0)
             {
                 string MyConString = "SERVER=den1.mysql2.gear.host;" +
+                "PORT=3306;" +
                 "DATABASE=filmi;" +
                 "UID=filmi;" +
-                "PASSWORD=izet.m;";
+                "PASSWORD=izet.m;" +
+                "SSLMODE=NONE";
                 string reader = "SELECT ime FROM filmi.kraji;";
                 MySqlConnection connection = new MySqlConnection(MyConString);
                 connection.Open();
