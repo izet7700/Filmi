@@ -18,27 +18,44 @@ namespace filmi
         public string mailprijava, passprijava;
         private void loginButton_Click(object sender, EventArgs e)
         {
-            if (pass2MaskedTextBox.Text!="" && email2TextBox.Text!="") {
-                string MyConString = "SERVER=den1.mysql2.gear.host;" +
+            if (pass2MaskedTextBox.Text != "" && email2TextBox.Text != "")
+            {
+                string MyConString = "SERVER=den1.mysql2.gear.host;"+
                     "DATABASE=filmi;" +
                     "UID=filmi;" +
-                    "PASSWORD=izet.m;";
-                string reader = "SELECT COUNT(*) FROM filmi.uporabniki WHERE EXISTS (email='" + email2TextBox.Text + "' AND " +
-                    "password='" + pass2MaskedTextBox.Text + "');";
+                    "PASSWORD=izet.m;" +
+                    "SSLMODE=NONE";
+                string reader = "SELECT COUNT(*) AS number FROM filmi.uporabniki WHERE (email='" + email2TextBox.Text + "') AND " +
+                    "(password='" + pass2MaskedTextBox.Text + "');";
                 MySqlConnection connection = new MySqlConnection(MyConString);
                 connection.Open();
-                MySqlDataAdapter login = new MySqlDataAdapter(reader,connection);
-                DataTable dt = new DataTable();
-                if (dt.Rows[0][0].ToString() == "1")
+                MySqlCommand read = new MySqlCommand(reader, connection);
+                int logstr;
+                logstr = Convert.ToInt32(read.ExecuteScalar());
+                using (MySqlDataReader login = read.ExecuteReader())
                 {
-                    mailprijava = email2TextBox.Text;
-                    passprijava = pass2MaskedTextBox.Text;
-                    MessageBox.Show("username and password are matched");
+                    if (logstr == 1)
+                    {
+                        login.Close();
+                        mailprijava = email2TextBox.Text;
+                        passprijava = pass2MaskedTextBox.Text;
+                        string adminMatch = "SELECT vrsta_uporabnika FROM filmi.uporabniki WHERE  (email='" + email2TextBox.Text + "') AND " +
+                        "(password='" + pass2MaskedTextBox.Text + "');";
+                        MySqlCommand match = new MySqlCommand(adminMatch, connection);
+                        int admstr;
+                        admstr = Convert.ToInt32(match.ExecuteScalar()); 
+                        if ( admstr == 1){
+                            adminForm adminForm = new adminForm();
+                            adminForm.Show();
+                            this.Hide();
+                        }
+                    }
+                    else { MessageBox.Show("username and password aren't matched"); }
                 }
-                else
-                {
-                    MessageBox.Show("username and password aren't matched");
-                }
+            }
+            else
+            {
+                MessageBox.Show("username and password aren't matched");
             }
         }
 
@@ -101,7 +118,8 @@ namespace filmi
                 string MyConString = "SERVER=den1.mysql2.gear.host;" +
                 "DATABASE=filmi;" +
                 "UID=filmi;" +
-                "PASSWORD=izet.m;";
+                "PASSWORD=izet.m;" +
+                "SSLMODE:NONE";
                 MySqlConnection connection = new MySqlConnection(MyConString);
                 connection.Open();
                 string register = "INSERT INTO filmi.uporabniki(ime,priimek,kraj_id,email,password,telefon," +

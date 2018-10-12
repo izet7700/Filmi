@@ -13,3 +13,4 @@ C:\Users\izoni\OneDrive\Dokumenti\GitHub\Filmi\filmi\bin\Debug\MySql.Data.xml
 C:\Users\izoni\OneDrive\Dokumenti\GitHub\Filmi\filmi\obj\Debug\filmi.csproj.CopyComplete
 C:\Users\izoni\OneDrive\Dokumenti\GitHub\Filmi\filmi\obj\Debug\filmi.exe
 C:\Users\izoni\OneDrive\Dokumenti\GitHub\Filmi\filmi\obj\Debug\filmi.pdb
+C:\Users\izoni\OneDrive\Dokumenti\GitHub\Filmi\filmi\obj\Debug\filmi.adminForm.resources

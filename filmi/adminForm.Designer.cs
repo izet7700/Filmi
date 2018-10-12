@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(adminForm));
             this.adminLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -82,6 +83,14 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.viewMoviesButton = new System.Windows.Forms.Button();
+            this.label25 = new System.Windows.Forms.Label();
+            this.priimekChangeTextBox = new System.Windows.Forms.TextBox();
+            this.imeChangeTextBox = new System.Windows.Forms.TextBox();
+            this.emailChangeTextBox = new System.Windows.Forms.TextBox();
+            this.changeVrUpoButton = new System.Windows.Forms.Button();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // adminLabel
@@ -121,6 +130,8 @@
             this.zanrComboBox.Name = "zanrComboBox";
             this.zanrComboBox.Size = new System.Drawing.Size(92, 21);
             this.zanrComboBox.TabIndex = 3;
+            this.zanrComboBox.SelectedIndexChanged += new System.EventHandler(this.zanrComboBox_SelectedIndexChanged);
+            this.zanrComboBox.Click += new System.EventHandler(this.zanrComboBox_Click);
             // 
             // drzavaComboBox
             // 
@@ -486,9 +497,9 @@
             // 
             // changePassButton
             // 
-            this.changePassButton.Location = new System.Drawing.Point(376, 416);
+            this.changePassButton.Location = new System.Drawing.Point(145, 457);
             this.changePassButton.Name = "changePassButton";
-            this.changePassButton.Size = new System.Drawing.Size(75, 23);
+            this.changePassButton.Size = new System.Drawing.Size(65, 23);
             this.changePassButton.TabIndex = 47;
             this.changePassButton.Text = "Change";
             this.changePassButton.UseVisualStyleBackColor = true;
@@ -507,14 +518,14 @@
             // 
             this.oldPassMaskedTextBox.Location = new System.Drawing.Point(23, 419);
             this.oldPassMaskedTextBox.Name = "oldPassMaskedTextBox";
-            this.oldPassMaskedTextBox.Size = new System.Drawing.Size(157, 20);
+            this.oldPassMaskedTextBox.Size = new System.Drawing.Size(116, 20);
             this.oldPassMaskedTextBox.TabIndex = 49;
             // 
             // newPassMaskedTextBox
             // 
-            this.newPassMaskedTextBox.Location = new System.Drawing.Point(201, 419);
+            this.newPassMaskedTextBox.Location = new System.Drawing.Point(23, 460);
             this.newPassMaskedTextBox.Name = "newPassMaskedTextBox";
-            this.newPassMaskedTextBox.Size = new System.Drawing.Size(157, 20);
+            this.newPassMaskedTextBox.Size = new System.Drawing.Size(116, 20);
             this.newPassMaskedTextBox.TabIndex = 50;
             // 
             // label23
@@ -529,7 +540,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(200, 403);
+            this.label24.Location = new System.Drawing.Point(23, 442);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(80, 13);
             this.label24.TabIndex = 52;
@@ -540,18 +551,93 @@
             this.viewMoviesButton.BackColor = System.Drawing.SystemColors.HotTrack;
             this.viewMoviesButton.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewMoviesButton.ForeColor = System.Drawing.SystemColors.Info;
-            this.viewMoviesButton.Location = new System.Drawing.Point(501, 371);
+            this.viewMoviesButton.Location = new System.Drawing.Point(469, 371);
             this.viewMoviesButton.Name = "viewMoviesButton";
-            this.viewMoviesButton.Size = new System.Drawing.Size(105, 69);
+            this.viewMoviesButton.Size = new System.Drawing.Size(137, 109);
             this.viewMoviesButton.TabIndex = 53;
             this.viewMoviesButton.Text = "View movies";
             this.viewMoviesButton.UseVisualStyleBackColor = false;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label25.Location = new System.Drawing.Point(212, 371);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(202, 20);
+            this.label25.TabIndex = 54;
+            this.label25.Text = "Spremeni vrsto uporabnika:";
+            // 
+            // priimekChangeTextBox
+            // 
+            this.priimekChangeTextBox.Location = new System.Drawing.Point(329, 419);
+            this.priimekChangeTextBox.Name = "priimekChangeTextBox";
+            this.priimekChangeTextBox.Size = new System.Drawing.Size(103, 20);
+            this.priimekChangeTextBox.TabIndex = 55;
+            // 
+            // imeChangeTextBox
+            // 
+            this.imeChangeTextBox.Location = new System.Drawing.Point(216, 420);
+            this.imeChangeTextBox.Name = "imeChangeTextBox";
+            this.imeChangeTextBox.Size = new System.Drawing.Size(108, 20);
+            this.imeChangeTextBox.TabIndex = 56;
+            // 
+            // emailChangeTextBox
+            // 
+            this.emailChangeTextBox.Location = new System.Drawing.Point(216, 460);
+            this.emailChangeTextBox.Name = "emailChangeTextBox";
+            this.emailChangeTextBox.Size = new System.Drawing.Size(147, 20);
+            this.emailChangeTextBox.TabIndex = 57;
+            // 
+            // changeVrUpoButton
+            // 
+            this.changeVrUpoButton.Location = new System.Drawing.Point(368, 458);
+            this.changeVrUpoButton.Name = "changeVrUpoButton";
+            this.changeVrUpoButton.Size = new System.Drawing.Size(65, 23);
+            this.changeVrUpoButton.TabIndex = 58;
+            this.changeVrUpoButton.Text = "Change";
+            this.changeVrUpoButton.UseVisualStyleBackColor = true;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(213, 403);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(27, 13);
+            this.label26.TabIndex = 59;
+            this.label26.Text = "Ime:";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(326, 403);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(44, 13);
+            this.label27.TabIndex = 60;
+            this.label27.Text = "Priimek:";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(213, 442);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(34, 13);
+            this.label28.TabIndex = 61;
+            this.label28.Text = "email:";
             // 
             // adminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(630, 452);
+            this.ClientSize = new System.Drawing.Size(630, 506);
+            this.Controls.Add(this.label28);
+            this.Controls.Add(this.label27);
+            this.Controls.Add(this.label26);
+            this.Controls.Add(this.changeVrUpoButton);
+            this.Controls.Add(this.emailChangeTextBox);
+            this.Controls.Add(this.imeChangeTextBox);
+            this.Controls.Add(this.priimekChangeTextBox);
+            this.Controls.Add(this.label25);
             this.Controls.Add(this.viewMoviesButton);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.label23);
@@ -606,8 +692,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.adminLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "adminForm";
-            this.Text = "adminForm";
+            this.Text = "Admin panel-Movies";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.adminForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -669,5 +757,13 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Button viewMoviesButton;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox priimekChangeTextBox;
+        private System.Windows.Forms.TextBox imeChangeTextBox;
+        private System.Windows.Forms.TextBox emailChangeTextBox;
+        private System.Windows.Forms.Button changeVrUpoButton;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label28;
     }
 }
