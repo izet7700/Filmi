@@ -83,7 +83,7 @@ namespace filmi
                         krajComboBox.DisplayMember = read["ime"].ToString();
                     }
                 }
-
+                connection.Close();
 
             }
             cbc = 1;
@@ -101,11 +101,17 @@ namespace filmi
 
         private void registerButton_Click(object sender, EventArgs e)
         {
+            string MyConString = "SERVER=den1.mysql2.gear.host;" +
+                "PORT=3306;" +
+                "DATABASE=filmi;" +
+                "UID=filmi;" +
+                "PASSWORD=izet.m;" +
+                "SSLMODE=NONE";
             ime = imeTextBox.Text;
             priimek = priimekTextBox.Text;
             email = emailTextBox.Text;
             password = passMaskedTextBox.Text;
-            kraj = krajComboBox.ValueMember;
+            kraj = krajComboBox.SelectedItem.ToString();
             DateTime datumroj = dateTimePicker1.Value;
             string datum = datumroj.ToString("yyyy-MM-dd");
             telefon = telefonTextBox.Text;
@@ -115,16 +121,12 @@ namespace filmi
             }
             else
             {
-                string MyConString = "SERVER=den1.mysql2.gear.host;" +
-                "DATABASE=filmi;" +
-                "UID=filmi;" +
-                "PASSWORD=izet.m;" +
-                "SSLMODE:NONE";
+                
                 MySqlConnection connection = new MySqlConnection(MyConString);
                 connection.Open();
                 string register = "INSERT INTO filmi.uporabniki(ime,priimek,kraj_id,email,password,telefon," +
-                    "datum_roj,vrsta_uporabnika) VALUES ('" + ime + "','" + priimek + "', '(SELECT id FROM" +
-                    "filmi.kraji WHERE ime='" + kraj + "')','" + email + "','" + password + "','" + telefon + "'," +
+                    "datum_roj,vrsta_uporabnika) VALUES ('" + ime + "','" + priimek + "', (SELECT id FROM " +
+                    "filmi.kraji WHERE ime='" + kraj + "'),'" + email + "','" + password + "','" + telefon + "'," +
                     "'" + datumroj + "',2);";
                 MySqlCommand regcomm = new MySqlCommand();
                 regcomm.CommandText = register;

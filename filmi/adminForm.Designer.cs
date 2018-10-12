@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(adminForm));
             this.adminLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -91,6 +90,8 @@
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
+            this.vrsta_upChangeComboBox = new System.Windows.Forms.ComboBox();
+            this.label29 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // adminLabel
@@ -119,9 +120,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.Location = new System.Drawing.Point(14, 58);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 20);
+            this.label2.Size = new System.Drawing.Size(372, 20);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Dodaj film:";
+            this.label2.Text = "Dodaj film(prvo dodaj film, potem igralce,režiserje...):";
             // 
             // zanrComboBox
             // 
@@ -140,6 +141,7 @@
             this.drzavaComboBox.Name = "drzavaComboBox";
             this.drzavaComboBox.Size = new System.Drawing.Size(94, 21);
             this.drzavaComboBox.TabIndex = 4;
+            this.drzavaComboBox.Click += new System.EventHandler(this.drzavaComboBox_Click);
             // 
             // imeFilmaTextBox
             // 
@@ -243,7 +245,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label9.Location = new System.Drawing.Point(14, 237);
+            this.label9.Location = new System.Drawing.Point(31, 228);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(138, 20);
             this.label9.TabIndex = 17;
@@ -256,10 +258,14 @@
             this.krajComboBox.Name = "krajComboBox";
             this.krajComboBox.Size = new System.Drawing.Size(92, 21);
             this.krajComboBox.TabIndex = 18;
+            this.krajComboBox.Click += new System.EventHandler(this.krajComboBox_Click);
             // 
             // vrsta_upComboBox
             // 
             this.vrsta_upComboBox.FormattingEnabled = true;
+            this.vrsta_upComboBox.Items.AddRange(new object[] {
+            "1",
+            "2"});
             this.vrsta_upComboBox.Location = new System.Drawing.Point(135, 289);
             this.vrsta_upComboBox.Name = "vrsta_upComboBox";
             this.vrsta_upComboBox.Size = new System.Drawing.Size(50, 21);
@@ -334,6 +340,7 @@
             this.igralecComboBox.Name = "igralecComboBox";
             this.igralecComboBox.Size = new System.Drawing.Size(121, 21);
             this.igralecComboBox.TabIndex = 28;
+            this.igralecComboBox.Click += new System.EventHandler(this.igralecComboBox_Click);
             // 
             // scenaristComboBox
             // 
@@ -342,6 +349,7 @@
             this.scenaristComboBox.Name = "scenaristComboBox";
             this.scenaristComboBox.Size = new System.Drawing.Size(121, 21);
             this.scenaristComboBox.TabIndex = 29;
+            this.scenaristComboBox.Click += new System.EventHandler(this.scenaristComboBox_Click);
             // 
             // producentComboBox
             // 
@@ -350,6 +358,7 @@
             this.producentComboBox.Name = "producentComboBox";
             this.producentComboBox.Size = new System.Drawing.Size(121, 21);
             this.producentComboBox.TabIndex = 30;
+            this.producentComboBox.Click += new System.EventHandler(this.producentComboBox_Click);
             // 
             // addActorButton
             // 
@@ -476,6 +485,7 @@
             this.directorComboBox.Name = "directorComboBox";
             this.directorComboBox.Size = new System.Drawing.Size(121, 21);
             this.directorComboBox.TabIndex = 44;
+            this.directorComboBox.Click += new System.EventHandler(this.directorComboBox_Click);
             // 
             // label21
             // 
@@ -572,12 +582,12 @@
             // 
             this.priimekChangeTextBox.Location = new System.Drawing.Point(329, 419);
             this.priimekChangeTextBox.Name = "priimekChangeTextBox";
-            this.priimekChangeTextBox.Size = new System.Drawing.Size(103, 20);
+            this.priimekChangeTextBox.Size = new System.Drawing.Size(113, 20);
             this.priimekChangeTextBox.TabIndex = 55;
             // 
             // imeChangeTextBox
             // 
-            this.imeChangeTextBox.Location = new System.Drawing.Point(216, 420);
+            this.imeChangeTextBox.Location = new System.Drawing.Point(216, 419);
             this.imeChangeTextBox.Name = "imeChangeTextBox";
             this.imeChangeTextBox.Size = new System.Drawing.Size(108, 20);
             this.imeChangeTextBox.TabIndex = 56;
@@ -586,12 +596,12 @@
             // 
             this.emailChangeTextBox.Location = new System.Drawing.Point(216, 460);
             this.emailChangeTextBox.Name = "emailChangeTextBox";
-            this.emailChangeTextBox.Size = new System.Drawing.Size(147, 20);
+            this.emailChangeTextBox.Size = new System.Drawing.Size(108, 20);
             this.emailChangeTextBox.TabIndex = 57;
             // 
             // changeVrUpoButton
             // 
-            this.changeVrUpoButton.Location = new System.Drawing.Point(368, 458);
+            this.changeVrUpoButton.Location = new System.Drawing.Point(385, 458);
             this.changeVrUpoButton.Name = "changeVrUpoButton";
             this.changeVrUpoButton.Size = new System.Drawing.Size(65, 23);
             this.changeVrUpoButton.TabIndex = 58;
@@ -625,11 +635,33 @@
             this.label28.TabIndex = 61;
             this.label28.Text = "email:";
             // 
+            // vrsta_upChangeComboBox
+            // 
+            this.vrsta_upChangeComboBox.FormattingEnabled = true;
+            this.vrsta_upChangeComboBox.Items.AddRange(new object[] {
+            "1",
+            "2"});
+            this.vrsta_upChangeComboBox.Location = new System.Drawing.Point(329, 459);
+            this.vrsta_upChangeComboBox.Name = "vrsta_upChangeComboBox";
+            this.vrsta_upChangeComboBox.Size = new System.Drawing.Size(50, 21);
+            this.vrsta_upChangeComboBox.TabIndex = 62;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(325, 442);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(61, 13);
+            this.label29.TabIndex = 63;
+            this.label29.Text = "Vrsta upor.:";
+            // 
             // adminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(630, 506);
+            this.ClientSize = new System.Drawing.Size(630, 492);
+            this.Controls.Add(this.label29);
+            this.Controls.Add(this.vrsta_upChangeComboBox);
             this.Controls.Add(this.label28);
             this.Controls.Add(this.label27);
             this.Controls.Add(this.label26);
@@ -692,7 +724,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.adminLabel);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "adminForm";
             this.Text = "Admin panel-Movies";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.adminForm_FormClosing);
@@ -765,5 +797,7 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.ComboBox vrsta_upChangeComboBox;
+        private System.Windows.Forms.Label label29;
     }
 }
