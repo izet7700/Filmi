@@ -535,6 +535,7 @@
             // 
             this.oldPassMaskedTextBox.Location = new System.Drawing.Point(23, 419);
             this.oldPassMaskedTextBox.Name = "oldPassMaskedTextBox";
+            this.oldPassMaskedTextBox.PasswordChar = '*';
             this.oldPassMaskedTextBox.Size = new System.Drawing.Size(116, 20);
             this.oldPassMaskedTextBox.TabIndex = 49;
             // 
@@ -542,6 +543,7 @@
             // 
             this.newPassMaskedTextBox.Location = new System.Drawing.Point(23, 460);
             this.newPassMaskedTextBox.Name = "newPassMaskedTextBox";
+            this.newPassMaskedTextBox.PasswordChar = '*';
             this.newPassMaskedTextBox.Size = new System.Drawing.Size(116, 20);
             this.newPassMaskedTextBox.TabIndex = 50;
             // 
@@ -614,6 +616,7 @@
             this.changeVrUpoButton.TabIndex = 58;
             this.changeVrUpoButton.Text = "Change";
             this.changeVrUpoButton.UseVisualStyleBackColor = true;
+            this.changeVrUpoButton.Click += new System.EventHandler(this.changeVrUpoButton_Click);
             // 
             // label26
             // 

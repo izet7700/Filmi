@@ -138,6 +138,28 @@ namespace filmi
             }
         }
 
+        private void changeVrUpoButton_Click(object sender, EventArgs e)
+        {
+            if (emailChangeTextBox.Text !="" && vrsta_upChangeComboBox.SelectedItem.ToString()!="")
+            {
+                string MyConString = "SERVER=den1.mysql2.gear.host;" +
+                "PORT=3306;" +
+                "DATABASE=filmi;" +
+                "UID=filmi;" +
+                "PASSWORD=izet.m;" +
+                "SSLMODE=NONE";
+                MySqlConnection connection = new MySqlConnection(MyConString);
+                connection.Open();
+                string newPass = "UPDATE filmi.uporabniki SET vrsta_uporabnika=" + vrsta_upChangeComboBox.SelectedItem.ToString() + " " +
+                    "WHERE email='" + emailChangeTextBox.Text + "';";
+                MySqlCommand change = new MySqlCommand(newPass, connection);
+                change.ExecuteNonQuery();
+                MessageBox.Show("Type of user was changed.");
+                connection.Close();
+            }
+            else MessageBox.Show("Don't valid values!");
+        }
+
         public void changePassButton_Click(object sender, EventArgs e)
         {
             if (newPassMaskedTextBox.Text != "")
