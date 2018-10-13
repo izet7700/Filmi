@@ -160,6 +160,13 @@ namespace filmi
             else MessageBox.Show("Don't valid values!");
         }
 
+        private void viewMoviesButton_Click(object sender, EventArgs e)
+        {
+            Movies movies = new Movies();
+            movies.Show();
+            this.Hide();
+        }
+
         public void changePassButton_Click(object sender, EventArgs e)
         {
             if (newPassMaskedTextBox.Text != "")

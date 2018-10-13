@@ -70,6 +70,18 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Movies.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Movies.Designer.cs">
+      <DependentUpon>Movies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OneMovie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OneMovie.Designer.cs">
+      <DependentUpon>OneMovie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="adminForm.resx">
@@ -77,6 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Movies.resx">
+      <DependentUpon>Movies.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

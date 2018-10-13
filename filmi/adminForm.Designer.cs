@@ -576,6 +576,7 @@
             this.viewMoviesButton.TabIndex = 53;
             this.viewMoviesButton.Text = "View movies";
             this.viewMoviesButton.UseVisualStyleBackColor = false;
+            this.viewMoviesButton.Click += new System.EventHandler(this.viewMoviesButton_Click);
             // 
             // label25
             // 
