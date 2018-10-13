@@ -48,6 +48,12 @@ namespace filmi
                             adminForm adminForm = new adminForm();
                             adminForm.Show();
                             this.Hide();
+                            adminForm.oldPass = passprijava;
+                            connection.Close();
+                            connection.Open();
+                            MySqlCommand getId = new MySqlCommand("SELECT id FROM filmi.uporabniki WHERE  (email='" + email2TextBox.Text + "') AND " +
+                            "(password='" + pass2MaskedTextBox.Text + "');",connection);
+                            adminForm.upoId = Convert.ToInt32(getId.ExecuteScalar());
                         }
                     }
                     else { MessageBox.Show("username and password aren't matched"); }

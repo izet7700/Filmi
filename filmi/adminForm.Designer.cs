@@ -333,6 +333,7 @@
             this.addUserButton.TabIndex = 27;
             this.addUserButton.Text = "Add user";
             this.addUserButton.UseVisualStyleBackColor = true;
+            this.addUserButton.Click += new System.EventHandler(this.addUserButton_Click);
             // 
             // igralecComboBox
             // 
@@ -518,6 +519,7 @@
             this.changePassButton.TabIndex = 47;
             this.changePassButton.Text = "Change";
             this.changePassButton.UseVisualStyleBackColor = true;
+            this.changePassButton.Click += new System.EventHandler(this.changePassButton_Click);
             // 
             // label22
             // 

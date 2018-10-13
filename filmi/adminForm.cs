@@ -17,7 +17,8 @@ namespace filmi
         int ccz=0,ccd=0,cci=0,ccs=0,ccp=0,ccr=0,cbc=0;
         int leto, zasluzek, getMovieId;
         double povp_oc;
-        string ime, opis, zanr, drzava;
+        public string ime, opis, zanr, drzava, oldPass;
+        public int upoId;
         public adminForm()
         {
             InitializeComponent();
@@ -96,6 +97,71 @@ namespace filmi
                 connection.Close();
                 MessageBox.Show("Director Successful added!");
             }
+        }
+
+        private void addUserButton_Click(object sender, EventArgs e)
+        {
+            string MyConString = "SERVER=den1.mysql2.gear.host;" +
+                "PORT=3306;" +
+                "DATABASE=filmi;" +
+                "UID=filmi;" +
+                "PASSWORD=izet.m;" +
+                "SSLMODE=NONE";
+            string imeup = imeupTextBox.Text;
+            string priimek = priimekTextBox.Text;
+            string email = emailTextBox.Text;
+            string password = passwordMaskedTextBox.Text;
+            string kraj = krajComboBox.SelectedItem.ToString();
+            DateTime datumroj = dat_rojDateTimePicker.Value;
+            string datum = datumroj.ToString("yyyy-MM-dd");
+            string telefon = telefonTextBox.Text;
+            string vrstaup = vrsta_upComboBox.SelectedItem.ToString();
+            if (ime == "" || priimek == "" || email == "" || kraj == "" || vrstaup=="")
+            {
+                MessageBox.Show("Not valid values for ime/priimek/email/vrsta uporabnika");
+            }
+            else
+            {
+
+                MySqlConnection connection = new MySqlConnection(MyConString);
+                connection.Open();
+                string register = "INSERT INTO filmi.uporabniki(ime,priimek,kraj_id,email,password,telefon," +
+                    "datum_roj,vrsta_uporabnika) VALUES ('" + ime + "','" + priimek + "', (SELECT id FROM " +
+                    "filmi.kraji WHERE ime='" + kraj + "'),'" + email + "','" + password + "','" + telefon + "'," +
+                    "'" + datumroj + "',"+vrstaup+");";
+                MySqlCommand regcomm = new MySqlCommand();
+                regcomm.CommandText = register;
+                regcomm.Connection = connection;
+                regcomm.ExecuteNonQuery();
+                connection.Close();
+                MessageBox.Show("Successfully added user!");
+            }
+        }
+
+        public void changePassButton_Click(object sender, EventArgs e)
+        {
+            if (newPassMaskedTextBox.Text != "")
+            {
+                if (oldPassMaskedTextBox.Text == oldPass)
+                {
+                    string MyConString = "SERVER=den1.mysql2.gear.host;" +
+                    "PORT=3306;" +
+                    "DATABASE=filmi;" +
+                    "UID=filmi;" +
+                    "PASSWORD=izet.m;" +
+                    "SSLMODE=NONE";
+                    MySqlConnection connection = new MySqlConnection(MyConString);
+                    connection.Open();
+                    string newPass = "UPDATE filmi.uporabniki SET password='" + newPassMaskedTextBox.Text + "' " +
+                        "WHERE id=" + upoId + ";";
+                    MySqlCommand change = new MySqlCommand(newPass, connection);
+                    change.ExecuteNonQuery();
+                    MessageBox.Show("Password changed.");
+                    connection.Close();
+                }
+                else MessageBox.Show("Password don't match!");
+            }
+            else MessageBox.Show("New password can't be empty!");
         }
 
         private void scenaristComboBox_Click(object sender, EventArgs e)
