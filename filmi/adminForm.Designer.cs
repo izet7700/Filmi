@@ -240,6 +240,7 @@
             this.addMovieButton.TabIndex = 16;
             this.addMovieButton.Text = "Add movie";
             this.addMovieButton.UseVisualStyleBackColor = true;
+            this.addMovieButton.Click += new System.EventHandler(this.addMovieButton_Click);
             // 
             // label9
             // 
@@ -368,6 +369,7 @@
             this.addActorButton.TabIndex = 31;
             this.addActorButton.Text = "Add";
             this.addActorButton.UseVisualStyleBackColor = true;
+            this.addActorButton.Click += new System.EventHandler(this.addActorButton_Click);
             // 
             // addWriterButton
             // 
@@ -377,6 +379,7 @@
             this.addWriterButton.TabIndex = 32;
             this.addWriterButton.Text = "Add";
             this.addWriterButton.UseVisualStyleBackColor = true;
+            this.addWriterButton.Click += new System.EventHandler(this.addWriterButton_Click);
             // 
             // producerButton
             // 
@@ -386,6 +389,7 @@
             this.producerButton.TabIndex = 33;
             this.producerButton.Text = "Add";
             this.producerButton.UseVisualStyleBackColor = true;
+            this.producerButton.Click += new System.EventHandler(this.producerButton_Click);
             // 
             // label11
             // 
@@ -504,6 +508,7 @@
             this.directorButton.TabIndex = 46;
             this.directorButton.Text = "Add";
             this.directorButton.UseVisualStyleBackColor = true;
+            this.directorButton.Click += new System.EventHandler(this.directorButton_Click);
             // 
             // changePassButton
             // 

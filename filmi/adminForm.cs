@@ -15,6 +15,9 @@ namespace filmi
     public partial class adminForm : Form
     {
         int ccz=0,ccd=0,cci=0,ccs=0,ccp=0,ccr=0,cbc=0;
+        int leto, zasluzek, getMovieId;
+        double povp_oc;
+        string ime, opis, zanr, drzava;
         public adminForm()
         {
             InitializeComponent();
@@ -24,10 +27,75 @@ namespace filmi
         {
 
         }
-
         private void label20_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void addWriterButton_Click(object sender, EventArgs e)
+        {
+            string MyConString = "SERVER=den1.mysql2.gear.host;" +
+                "PORT=3306;" +
+                "DATABASE=filmi;" +
+                "UID=filmi;" +
+                "PASSWORD=izet.m;" +
+                "SSLMODE=NONE";
+            MySqlConnection connection = new MySqlConnection(MyConString);
+            if (scenaristComboBox.SelectedItem.ToString() == "") MessageBox.Show("Not valid values!");
+            else
+            {
+                string[] splits = scenaristComboBox.SelectedItem.ToString().Split('.');
+                string addWriter = "INSERT INTO filmi.scenarsti_filmi(scenarist_id,film_id) VALUES(" + splits[0] + "," + getMovieId + ")";
+                connection.Open();
+                MySqlCommand insertWriter = new MySqlCommand(addWriter, connection);
+                insertWriter.ExecuteNonQuery();
+                connection.Close();
+                MessageBox.Show("Writer Successful added!");
+            }
+        }
+
+        private void producerButton_Click(object sender, EventArgs e)
+        {
+            string MyConString = "SERVER=den1.mysql2.gear.host;" +
+                "PORT=3306;" +
+                "DATABASE=filmi;" +
+                "UID=filmi;" +
+                "PASSWORD=izet.m;" +
+                "SSLMODE=NONE";
+            MySqlConnection connection = new MySqlConnection(MyConString);
+            if (producentComboBox.SelectedItem.ToString() == "") MessageBox.Show("Not valid values!");
+            else
+            {
+                string[] splits = igralecComboBox.SelectedItem.ToString().Split('.');
+                string addProducer = "INSERT INTO filmi.producenti_filmi(producent_id,film_id) VALUES(" + splits[0] + "," + getMovieId + ")";
+                connection.Open();
+                MySqlCommand insertProducer = new MySqlCommand(addProducer, connection);
+                insertProducer.ExecuteNonQuery();
+                connection.Close();
+                MessageBox.Show("Producer Successful added!");
+            }
+        }
+
+        private void directorButton_Click(object sender, EventArgs e)
+        {
+            string MyConString = "SERVER=den1.mysql2.gear.host;" +
+                "PORT=3306;" +
+                "DATABASE=filmi;" +
+                "UID=filmi;" +
+                "PASSWORD=izet.m;" +
+                "SSLMODE=NONE";
+            MySqlConnection connection = new MySqlConnection(MyConString);
+            if (directorComboBox.SelectedItem.ToString() == "") MessageBox.Show("Not valid values!");
+            else
+            {
+                string[] splits = directorComboBox.SelectedItem.ToString().Split('.');
+                string addDirector = "INSERT INTO filmi.reziserji_filmi(reziser_id,film_id) VALUES(" + splits[0] + "," + getMovieId + ")";
+                connection.Open();
+                MySqlCommand insertDirector = new MySqlCommand(addDirector, connection);
+                insertDirector.ExecuteNonQuery();
+                connection.Close();
+                MessageBox.Show("Director Successful added!");
+            }
         }
 
         private void scenaristComboBox_Click(object sender, EventArgs e)
@@ -40,7 +108,7 @@ namespace filmi
                 "UID=filmi;" +
                 "PASSWORD=izet.m;" +
                 "SSLMODE=NONE";
-                string reader = "SELECT ime, priimek FROM filmi.scenaristi;";
+                string reader = "SELECT id, ime, priimek FROM filmi.scenaristi;";
                 MySqlConnection connection = new MySqlConnection(MyConString);
                 connection.Open();
                 MySqlCommand showkraj = new MySqlCommand(reader, connection);
@@ -49,8 +117,8 @@ namespace filmi
                 {
                     while (read.Read())
                     {
-                        scenaristComboBox.Items.Add(read["ime"].ToString() + " " + read["priimek"].ToString());
-                        scenaristComboBox.DisplayMember = read["ime"].ToString() + " " + read["priimek"].ToString();
+                        scenaristComboBox.Items.Add(read["id"]+"."+read["ime"].ToString() + " " + read["priimek"].ToString());
+                        scenaristComboBox.DisplayMember =read["id"] +"."+ read["ime"].ToString() + " " + read["priimek"].ToString();
                     }
                 }
             }
@@ -67,7 +135,7 @@ namespace filmi
                 "UID=filmi;" +
                 "PASSWORD=izet.m;" +
                 "SSLMODE=NONE";
-                string reader = "SELECT ime, priimek FROM filmi.producenti;";
+                string reader = "SELECT id, ime, priimek FROM filmi.producenti;";
                 MySqlConnection connection = new MySqlConnection(MyConString);
                 connection.Open();
                 MySqlCommand showkraj = new MySqlCommand(reader, connection);
@@ -76,8 +144,8 @@ namespace filmi
                 {
                     while (read.Read())
                     {
-                        producentComboBox.Items.Add(read["ime"].ToString() + " " + read["priimek"].ToString());
-                        producentComboBox.DisplayMember = read["ime"].ToString() + " " + read["priimek"].ToString();
+                        producentComboBox.Items.Add(read["id"].ToString()+"."+read["ime"].ToString() + " " + read["priimek"].ToString());
+                        producentComboBox.DisplayMember = read["id"].ToString() + "." +read["ime"].ToString() + " " + read["priimek"].ToString();
                     }
                 }
             }
@@ -94,7 +162,7 @@ namespace filmi
                 "UID=filmi;" +
                 "PASSWORD=izet.m;" +
                 "SSLMODE=NONE";
-                string reader = "SELECT ime, priimek FROM filmi.reziserji;";
+                string reader = "SELECT id, ime, priimek FROM filmi.reziserji;";
                 MySqlConnection connection = new MySqlConnection(MyConString);
                 connection.Open();
                 MySqlCommand showkraj = new MySqlCommand(reader, connection);
@@ -103,14 +171,57 @@ namespace filmi
                 {
                     while (read.Read())
                     {
-                        directorComboBox.Items.Add(read["ime"].ToString() + " " + read["priimek"].ToString());
-                        directorComboBox.DisplayMember = read["ime"].ToString() + " " + read["priimek"].ToString();
+                        directorComboBox.Items.Add(read["id"].ToString() + "." + read["ime"].ToString() + " " + read["priimek"].ToString());
+                        directorComboBox.DisplayMember = read["id"].ToString() + "." + read["ime"].ToString() + " " + read["priimek"].ToString();
                     }
                 }
             }
             ccr = 1;
         }
 
+        private void addMovieButton_Click(object sender, EventArgs e)
+        {
+            string MyConString = "SERVER=den1.mysql2.gear.host;" +
+                "PORT=3306;" +
+                "DATABASE=filmi;" +
+                "UID=filmi;" +
+                "PASSWORD=izet.m;" +
+                "SSLMODE=NONE";
+            ime = imeFilmaTextBox.Text;
+            Double.TryParse(povp_ocTextBox.Text, out povp_oc);
+            int.TryParse(zaslužekTextBox.Text, out zasluzek);
+            int.TryParse(letnicaTextBox.Text, out leto);
+            opis = opisTextBox.Text; if (ime == "" || povp_ocTextBox.Text == "" || zaslužekTextBox.Text == "" ||
+                 letnicaTextBox.Text == "" || zanrComboBox.SelectedItem.ToString() == "" 
+                 || drzavaComboBox.SelectedItem.ToString() == "")
+            {
+                MessageBox.Show("Not valid values");
+            }
+            else
+            {
+                zanr = zanrComboBox.SelectedItem.ToString();
+                drzava = drzavaComboBox.SelectedItem.ToString();
+                MySqlConnection connection = new MySqlConnection(MyConString);
+                connection.Open();
+                string addMovie = "INSERT INTO filmi.filmi(ime_filma,zanr_id,drzava_id,leto_p,povp_ocena_imdb" +
+                    ",zasluzek,opis) VALUES ('" + ime + "',(SELECT id FROM filmi.zanri WHERE ime='"+zanr+"')," +
+                    " (SELECT id FROM filmi.drzave WHERE ime='" + drzava + "')," + leto + "," + povp_oc + "," +
+                    zasluzek + ", '" + opis + "');";
+                MySqlCommand adding = new MySqlCommand();
+                adding.CommandText = addMovie;
+                adding.Connection = connection;
+                adding.ExecuteNonQuery();
+                connection.Close();
+                MessageBox.Show("Movie successeful added!\nNow, you can add actors,producers etc.");
+                connection.Open();
+                string movie_id = "SELECT id FROM filmi.filmi WHERE ime_filma='"+ime+"'";
+                MySqlCommand gmid = new MySqlCommand();
+                gmid.CommandText = movie_id;
+                gmid.Connection = connection;
+                getMovieId= Convert.ToInt32(gmid.ExecuteScalar());
+                connection.Close();
+            }
+        }
         private void krajComboBox_Click(object sender, EventArgs e)
         {
             if (cbc == 0)
@@ -189,7 +300,7 @@ namespace filmi
                 "UID=filmi;" +
                 "PASSWORD=izet.m;" +
                 "SSLMODE=NONE";
-                string reader = "SELECT ime, priimek FROM filmi.igralci;";
+                string reader = "SELECT id, ime, priimek FROM filmi.igralci;";
                 MySqlConnection connection = new MySqlConnection(MyConString);
                 connection.Open();
                 MySqlCommand showkraj = new MySqlCommand(reader, connection);
@@ -198,14 +309,33 @@ namespace filmi
                 {
                     while (read.Read())
                     {
-                        igralecComboBox.Items.Add(read["ime"].ToString()+" "+read["priimek"].ToString());
-                        igralecComboBox.DisplayMember = read["ime"].ToString() + " " + read["priimek"].ToString();
+                        igralecComboBox.Items.Add(read["id"].ToString()+"."+read["ime"].ToString()+" "+read["priimek"].ToString());
+                        igralecComboBox.DisplayMember = read["id"].ToString() + "." + read["ime"].ToString() + " " + read["priimek"].ToString();
                     }
                 }
             }
             cci = 1;
         }
-
+        private void addActorButton_Click(object sender, EventArgs e)
+        {
+            string MyConString = "SERVER=den1.mysql2.gear.host;" +
+                "PORT=3306;" +
+                "DATABASE=filmi;" +
+                "UID=filmi;" +
+                "PASSWORD=izet.m;" +
+                "SSLMODE=NONE";
+            MySqlConnection connection = new MySqlConnection(MyConString);
+            if (igralecComboBox.SelectedItem.ToString() == "") MessageBox.Show("Not valid values!");
+            else {
+                string[] splits = igralecComboBox.SelectedItem.ToString().Split('.');
+                string addActor = "INSERT INTO filmi.igralci_filmi(igralec_id,film_id) VALUES("+splits[0]+","+getMovieId+")";
+                connection.Open();
+                MySqlCommand insertActor = new MySqlCommand(addActor, connection);
+                insertActor.ExecuteNonQuery();
+                connection.Close();
+                MessageBox.Show("Actor Successful added!");
+            }
+        }
         private void drzavaComboBox_Click(object sender, EventArgs e)
         {
             if (ccd == 0)
