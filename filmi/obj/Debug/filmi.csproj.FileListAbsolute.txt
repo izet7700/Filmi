@@ -15,3 +15,4 @@ C:\Users\izoni\OneDrive\Dokumenti\GitHub\Filmi\filmi\obj\Debug\filmi.exe
 C:\Users\izoni\OneDrive\Dokumenti\GitHub\Filmi\filmi\obj\Debug\filmi.pdb
 C:\Users\izoni\OneDrive\Dokumenti\GitHub\Filmi\filmi\obj\Debug\filmi.adminForm.resources
 C:\Users\izoni\OneDrive\Dokumenti\GitHub\Filmi\filmi\obj\Debug\filmi.Movies.resources
+C:\Users\izoni\OneDrive\Dokumenti\GitHub\Filmi\filmi\obj\Debug\filmi.OneMovie.resources

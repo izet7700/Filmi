@@ -93,6 +93,9 @@
     <EmbeddedResource Include="Movies.resx">
       <DependentUpon>Movies.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OneMovie.resx">
+      <DependentUpon>OneMovie.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
