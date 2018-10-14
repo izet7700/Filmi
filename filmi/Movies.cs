@@ -79,5 +79,10 @@ namespace filmi
         {
             
         }
+
+        private void Movies_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

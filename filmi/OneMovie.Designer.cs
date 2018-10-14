@@ -37,7 +37,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Britannic Bold", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(182, 9);
+            this.label1.Location = new System.Drawing.Point(350, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 27);
             this.label1.TabIndex = 0;
@@ -58,15 +58,14 @@
             this.igralci.AutoSize = true;
             this.igralci.Location = new System.Drawing.Point(13, 229);
             this.igralci.Name = "igralci";
-            this.igralci.Size = new System.Drawing.Size(35, 13);
+            this.igralci.Size = new System.Drawing.Size(0, 13);
             this.igralci.TabIndex = 2;
-            this.igralci.Text = "label3";
             // 
             // OneMovie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(754, 450);
+            this.ClientSize = new System.Drawing.Size(1056, 450);
             this.Controls.Add(this.igralci);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);

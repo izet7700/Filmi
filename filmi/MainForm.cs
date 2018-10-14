@@ -55,6 +55,12 @@ namespace filmi
                             "(password='" + pass2MaskedTextBox.Text + "');",connection);
                             adminForm.upoId = Convert.ToInt32(getId.ExecuteScalar());
                         }
+                        else
+                        {
+                            Movies movies = new Movies();
+                            movies.Show();
+                            this.Hide();
+                        }
                     }
                     else { MessageBox.Show("username and password aren't matched"); }
                 }
@@ -139,6 +145,9 @@ namespace filmi
                 regcomm.Connection = connection;
                 regcomm.ExecuteNonQuery();
                 connection.Close();
+                Movies movies = new Movies();
+                movies.Show();
+                this.Hide();
             }
         }
     }
