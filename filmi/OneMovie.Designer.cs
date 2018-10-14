@@ -36,8 +36,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Font = new System.Drawing.Font("Britannic Bold", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(350, 9);
+            this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 27);
             this.label1.TabIndex = 0;
@@ -48,7 +49,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Rockwell", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(13, 110);
+            this.label2.Location = new System.Drawing.Point(13, 159);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(0, 20);
             this.label2.TabIndex = 1;
@@ -65,7 +66,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1056, 450);
+            this.ClientSize = new System.Drawing.Size(1370, 461);
             this.Controls.Add(this.igralci);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);

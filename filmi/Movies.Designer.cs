@@ -84,6 +84,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.filmiListBox);
             this.Controls.Add(this.label2);
+            this.MaximizeBox = false;
             this.Name = "Movies";
             this.Text = "Movies";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Movies_FormClosing);
