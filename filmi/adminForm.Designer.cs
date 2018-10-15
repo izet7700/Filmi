@@ -83,12 +83,8 @@
             this.label24 = new System.Windows.Forms.Label();
             this.viewMoviesButton = new System.Windows.Forms.Button();
             this.label25 = new System.Windows.Forms.Label();
-            this.priimekChangeTextBox = new System.Windows.Forms.TextBox();
-            this.imeChangeTextBox = new System.Windows.Forms.TextBox();
             this.emailChangeTextBox = new System.Windows.Forms.TextBox();
             this.changeVrUpoButton = new System.Windows.Forms.Button();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.vrsta_upChangeComboBox = new System.Windows.Forms.ComboBox();
             this.label29 = new System.Windows.Forms.Label();
@@ -265,11 +261,11 @@
             // 
             this.vrsta_upComboBox.FormattingEnabled = true;
             this.vrsta_upComboBox.Items.AddRange(new object[] {
-            "1",
-            "2"});
-            this.vrsta_upComboBox.Location = new System.Drawing.Point(135, 289);
+            "admin",
+            "uporabnik"});
+            this.vrsta_upComboBox.Location = new System.Drawing.Point(121, 289);
             this.vrsta_upComboBox.Name = "vrsta_upComboBox";
-            this.vrsta_upComboBox.Size = new System.Drawing.Size(50, 21);
+            this.vrsta_upComboBox.Size = new System.Drawing.Size(76, 21);
             this.vrsta_upComboBox.TabIndex = 19;
             this.vrsta_upComboBox.SelectedIndexChanged += new System.EventHandler(this.vrsta_upComboBox_SelectedIndexChanged);
             // 
@@ -570,7 +566,7 @@
             this.viewMoviesButton.BackColor = System.Drawing.SystemColors.HotTrack;
             this.viewMoviesButton.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewMoviesButton.ForeColor = System.Drawing.SystemColors.Info;
-            this.viewMoviesButton.Location = new System.Drawing.Point(469, 371);
+            this.viewMoviesButton.Location = new System.Drawing.Point(437, 371);
             this.viewMoviesButton.Name = "viewMoviesButton";
             this.viewMoviesButton.Size = new System.Drawing.Size(137, 109);
             this.viewMoviesButton.TabIndex = 53;
@@ -588,30 +584,16 @@
             this.label25.TabIndex = 54;
             this.label25.Text = "Spremeni vrsto uporabnika:";
             // 
-            // priimekChangeTextBox
-            // 
-            this.priimekChangeTextBox.Location = new System.Drawing.Point(329, 419);
-            this.priimekChangeTextBox.Name = "priimekChangeTextBox";
-            this.priimekChangeTextBox.Size = new System.Drawing.Size(113, 20);
-            this.priimekChangeTextBox.TabIndex = 55;
-            // 
-            // imeChangeTextBox
-            // 
-            this.imeChangeTextBox.Location = new System.Drawing.Point(216, 419);
-            this.imeChangeTextBox.Name = "imeChangeTextBox";
-            this.imeChangeTextBox.Size = new System.Drawing.Size(108, 20);
-            this.imeChangeTextBox.TabIndex = 56;
-            // 
             // emailChangeTextBox
             // 
-            this.emailChangeTextBox.Location = new System.Drawing.Point(216, 460);
+            this.emailChangeTextBox.Location = new System.Drawing.Point(216, 419);
             this.emailChangeTextBox.Name = "emailChangeTextBox";
-            this.emailChangeTextBox.Size = new System.Drawing.Size(108, 20);
+            this.emailChangeTextBox.Size = new System.Drawing.Size(130, 20);
             this.emailChangeTextBox.TabIndex = 57;
             // 
             // changeVrUpoButton
             // 
-            this.changeVrUpoButton.Location = new System.Drawing.Point(385, 458);
+            this.changeVrUpoButton.Location = new System.Drawing.Point(321, 457);
             this.changeVrUpoButton.Name = "changeVrUpoButton";
             this.changeVrUpoButton.Size = new System.Drawing.Size(65, 23);
             this.changeVrUpoButton.TabIndex = 58;
@@ -619,28 +601,10 @@
             this.changeVrUpoButton.UseVisualStyleBackColor = true;
             this.changeVrUpoButton.Click += new System.EventHandler(this.changeVrUpoButton_Click);
             // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(213, 403);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(27, 13);
-            this.label26.TabIndex = 59;
-            this.label26.Text = "Ime:";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(326, 403);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(44, 13);
-            this.label27.TabIndex = 60;
-            this.label27.Text = "Priimek:";
-            // 
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(213, 442);
+            this.label28.Location = new System.Drawing.Point(213, 403);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(34, 13);
             this.label28.TabIndex = 61;
@@ -650,17 +614,17 @@
             // 
             this.vrsta_upChangeComboBox.FormattingEnabled = true;
             this.vrsta_upChangeComboBox.Items.AddRange(new object[] {
-            "1",
-            "2"});
-            this.vrsta_upChangeComboBox.Location = new System.Drawing.Point(329, 459);
+            "admin",
+            "uporabnik"});
+            this.vrsta_upChangeComboBox.Location = new System.Drawing.Point(216, 460);
             this.vrsta_upChangeComboBox.Name = "vrsta_upChangeComboBox";
-            this.vrsta_upChangeComboBox.Size = new System.Drawing.Size(50, 21);
+            this.vrsta_upChangeComboBox.Size = new System.Drawing.Size(99, 21);
             this.vrsta_upChangeComboBox.TabIndex = 62;
             // 
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(325, 442);
+            this.label29.Location = new System.Drawing.Point(213, 442);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(61, 13);
             this.label29.TabIndex = 63;
@@ -674,12 +638,8 @@
             this.Controls.Add(this.label29);
             this.Controls.Add(this.vrsta_upChangeComboBox);
             this.Controls.Add(this.label28);
-            this.Controls.Add(this.label27);
-            this.Controls.Add(this.label26);
             this.Controls.Add(this.changeVrUpoButton);
             this.Controls.Add(this.emailChangeTextBox);
-            this.Controls.Add(this.imeChangeTextBox);
-            this.Controls.Add(this.priimekChangeTextBox);
             this.Controls.Add(this.label25);
             this.Controls.Add(this.viewMoviesButton);
             this.Controls.Add(this.label24);
@@ -801,12 +761,8 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Button viewMoviesButton;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox priimekChangeTextBox;
-        private System.Windows.Forms.TextBox imeChangeTextBox;
         private System.Windows.Forms.TextBox emailChangeTextBox;
         private System.Windows.Forms.Button changeVrUpoButton;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.ComboBox vrsta_upChangeComboBox;
         private System.Windows.Forms.Label label29;

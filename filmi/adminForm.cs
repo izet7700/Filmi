@@ -128,7 +128,7 @@ namespace filmi
                 string register = "INSERT INTO filmi.uporabniki(ime,priimek,kraj_id,email,password,telefon," +
                     "datum_roj,vrsta_uporabnika) VALUES ('" + ime + "','" + priimek + "', (SELECT id FROM " +
                     "filmi.kraji WHERE ime='" + kraj + "'),'" + email + "','" + password + "','" + telefon + "'," +
-                    "'" + datumroj + "',"+vrstaup+");";
+                    "'" + datumroj + "','"+vrstaup+"');";
                 MySqlCommand regcomm = new MySqlCommand();
                 regcomm.CommandText = register;
                 regcomm.Connection = connection;
@@ -150,7 +150,7 @@ namespace filmi
                 "SSLMODE=NONE";
                 MySqlConnection connection = new MySqlConnection(MyConString);
                 connection.Open();
-                string newPass = "UPDATE filmi.uporabniki SET vrsta_uporabnika=" + vrsta_upChangeComboBox.SelectedItem.ToString() + " " +
+                string newPass = "UPDATE filmi.uporabniki SET vrsta_uporabnika='" + vrsta_upChangeComboBox.SelectedItem.ToString() + "' " +
                     "WHERE email='" + emailChangeTextBox.Text + "';";
                 MySqlCommand change = new MySqlCommand(newPass, connection);
                 change.ExecuteNonQuery();
