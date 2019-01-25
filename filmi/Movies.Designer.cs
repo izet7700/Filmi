@@ -88,6 +88,7 @@
             this.Name = "Movies";
             this.Text = "Movies";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Movies_FormClosing);
+            this.Load += new System.EventHandler(this.Movies_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

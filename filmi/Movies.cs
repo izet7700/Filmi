@@ -84,5 +84,10 @@ namespace filmi
         {
             Application.Exit();
         }
+
+        private void Movies_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
